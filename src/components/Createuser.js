@@ -18,7 +18,7 @@ export default class Createuser extends Component {
     console.log(pathArray[2])
     if (pathArray[2]){
       console.log('ejecutando')
-      const res = await axios.get('http://localhost:4000/api/users/' + pathArray[2]);
+      const res = await axios.get('https://notesapp-api-7xg2.onrender.com/api/users/' + pathArray[2]);
       console.log(pathArray[2])
       this.setState({
         editing: true,
@@ -33,7 +33,7 @@ export default class Createuser extends Component {
     })
   }
   getUsers = async () => {
-    const res = await axios.get('http://localhost:4000/api/users'); //axios para la comunicacion back=front
+    const res = await axios.get('https://notesapp-api-7xg2.onrender.com/api/users'); //axios para la comunicacion back=front
     this.setState({ users: res.data }); //se almacena en el estado el arreglo de usuarios
   }
   

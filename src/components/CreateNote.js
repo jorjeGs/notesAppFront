@@ -46,9 +46,9 @@ export default class CreateNote extends Component {
       author: this.state.userSelected
     };
     if (this.state.editing) {
-      await axios.put('http://localhost:4000/api/notes/' + this.state._id, newNote)
+      await axios.put('https://notesapp-api-7xg2.onrender.com/api/notes/' + this.state._id, newNote)
     } else {
-      await axios.post('http://localhost:4000/api/notes', newNote);
+      await axios.post('https://notesapp-api-7xg2.onrender.com/api/notes', newNote);
     }
     window.location.href = '/'; //al guardar redirecciona a la direccion inicial
   }

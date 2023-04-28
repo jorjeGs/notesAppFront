@@ -17,7 +17,7 @@ export default class Createuser extends Component {
         console.log(pathArray[2])
         if (pathArray[2]) {
             console.log('ejecutando')
-            const res = await axios.get('http://localhost:4000/api/users/' + pathArray[2]);
+            const res = await axios.get('https://notesapp-api-7xg2.onrender.com/api/users/' + pathArray[2]);
             console.log(pathArray[2])
             this.setState({
                 editing: true,
@@ -32,7 +32,7 @@ export default class Createuser extends Component {
         })
     }
     getUsers = async () => {
-        const res = await axios.get('http://localhost:4000/api/users'); //axios para la comunicacion back=front
+        const res = await axios.get('https://notesapp-api-7xg2.onrender.com/api/users'); //axios para la comunicacion back=front
         this.setState({ users: res.data }); //se almacena en el estado el arreglo de usuarios
     }
 
@@ -45,10 +45,10 @@ export default class Createuser extends Component {
             const editeduser = {
                 username: this.state.username
             };
-            await axios.put('http://localhost:4000/api/users/' + this.state._id, editeduser)
+            await axios.put('https://notesapp-api-7xg2.onrender.com/api/users/' + this.state._id, editeduser)
             window.location.href = '/user'; //al guardar redirecciona a la direccion inicial
         } else {
-            await axios.post('http://localhost:4000/api/users', { //enviamos los datos al servidor
+            await axios.post('https://notesapp-api-7xg2.onrender.com/api/users', { //enviamos los datos al servidor
                 username: this.state.username
             })
             this.setState({ username: '' });
@@ -57,7 +57,7 @@ export default class Createuser extends Component {
     }
 
     deleteUser = async (id) => {
-        await axios.delete('http://localhost:4000/api/users/' + id)
+        await axios.delete('https://notesapp-api-7xg2.onrender.com/api/users/' + id)
         this.getUsers();
     }
 
