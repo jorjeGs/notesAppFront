@@ -20,13 +20,13 @@ export default class CreateNote extends Component {
     const pathArray = window.location.pathname.split('/', 3) //obtengo la ruta, la separo y obtengo el id
 
     console.log(pathArray[2])
-    const res = await axios.get('http://localhost:4000/api/users')
+    const res = await axios.get('https://notesapp-api-7xg2.onrender.com/api/users')
     this.setState({
       users: res.data,
       userSelected: res.data[0].username
     })
     if (pathArray[2]) {
-      const res = await axios.get('http://localhost:4000/api/notes/' + pathArray[2]);
+      const res = await axios.get('https://notesapp-api-7xg2.onrender.com/api/notes/' + pathArray[2]);
       this.setState({
         editing: true,
         title: res.data.title,
